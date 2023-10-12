@@ -1,0 +1,36 @@
+OpenAI response for Prompt: using artificial intelligence can you generate a simple python code to shorten a URL 
+ *************************
+
+
+
+#importing libraries 
+import requests 
+import json 
+
+#declaring URL 
+url = 'https://www.codewithharry.com/'
+
+#API key
+apikey = 'API KEY HERE'
+
+#endpoint
+endpoint = 'https://api-ssl.bitly.com/v4/shorten'
+
+#headers
+headers = {
+    'Authorization': 'Bearer ' + apikey
+}
+
+#payload
+payload = {
+    'long_url': url
+}
+
+#posting request
+response = requests.post(endpoint, headers=headers, json=payload)
+
+#getting response
+data = json.loads(response.content)
+
+#printing link
+print(data['link'])
